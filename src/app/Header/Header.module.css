@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 1rem;
+  width: 100%;
+}
+
+.header header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .header header {
+    max-width: 66.66%;
+  }
+}
+
+.logo {
+  padding: 10px 12px;
+  z-index: 1;
+}
+
+.logo :global(path) {
+  fill: white;
+}
+
+.header a {
+  display: flex;
+}
+
+.header a:hover :global(path) {
+  fill: var(--link-hover);
+}
+
+.scroll {
+  font-family: "Handjet";
+  font-weight: 700px;
+  text-transform: uppercase;
+  z-index: 1;
+}
