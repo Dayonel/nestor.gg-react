@@ -1,14 +1,14 @@
 "use client";
-import { useEffect } from "react";
-import { Logo } from "../Logo";
+import { useEffect, useState } from "react";
 import styles from "./Header.module.css";
+import { Logo } from "@/app/Logo";
 
 export default function Header() {
-  let scrollPercent: number = 0;
+  const [scrollPercent, setScrollPercent] = useState(0);
 
   useEffect(() => {
     document.addEventListener("scroll-percent", (e: any) => {
-      scrollPercent = e.detail;
+      setScrollPercent(e.detail);
     });
   });
 

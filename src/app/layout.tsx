@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Handjet, Roboto, Source_Sans_3 } from "next/font/google";
 import Head from "next/head";
-import Header from "./Header/Header";
+import Header from "./components/Header/Header";
 
 const handjet = Handjet({ subsets: ["latin"], weight: "700" });
 const roboto = Roboto({ subsets: ["latin"], weight: "900" });
