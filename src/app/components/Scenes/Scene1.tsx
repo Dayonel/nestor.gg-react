@@ -6,6 +6,9 @@ import TWEEN from "@tweenjs/tween.js";
 import { MaterialDTO } from "@/app/core/dto/MaterialDTO";
 import { resizeCanvas } from "@/app/utils/canvas";
 import PointLight from "@/app/lib/three/PointLight";
+import Background from "@/app/lib/three/Background";
+import SpotLight from "@/app/lib/three/SpotLight";
+import DirectionalLight from "@/app/lib/three/DirectionalLight";
 
 interface Scene1Props {
   models: any[];
@@ -182,7 +185,13 @@ const Scene1: React.FC<Scene1Props> = ({
 
   return (
     <>
-      {/* Lights */}
+      <Background
+        scene={sceneRef.current}
+        color={0xc22fca}
+        position={new THREE.Vector3(0, 0, -5)}
+      />
+
+      {/* Moving lights */}
       <PointLight
         ref={light1Ref}
         scene={sceneRef.current}
@@ -206,6 +215,43 @@ const Scene1: React.FC<Scene1Props> = ({
         scene={sceneRef.current}
         color={0xffaa00}
         intensity={50}
+      />
+
+      {/* Static lights */}
+      <PointLight
+        scene={sceneRef.current}
+        color={0xff0000}
+        intensity={50}
+        position={new THREE.Vector3(-10, 10, 10)}
+      />
+
+      <PointLight
+        scene={sceneRef.current}
+        color={0x0000ff}
+        intensity={50}
+        position={new THREE.Vector3(0, 10, 10)}
+      />
+
+      <PointLight
+        scene={sceneRef.current}
+        color={0xff0000}
+        intensity={50}
+        position={new THREE.Vector3(10, 10, 10)}
+      />
+
+      <SpotLight
+        scene={sceneRef.current}
+        color={0xffffff}
+        intensity={2000}
+        position={new THREE.Vector3(0, 50, -1)}
+      />
+
+      <DirectionalLight
+        scene={sceneRef.current}
+        color={0xf2f2f2}
+        intensity={0.12}
+        position={new THREE.Vector3(-1, 1.75, 1)}
+        scale={30}
       />
     </>
   );

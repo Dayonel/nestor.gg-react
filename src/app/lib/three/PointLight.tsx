@@ -22,7 +22,9 @@ const PointLight = forwardRef(function PointLight(
 
     scene.add(pointLight);
 
-    (ref as React.MutableRefObject<THREE.PointLight>).current = pointLight;
+    if (ref) {
+      (ref as React.MutableRefObject<THREE.PointLight>).current = pointLight;
+    }
 
     return () => {
       scene.remove(pointLight);
